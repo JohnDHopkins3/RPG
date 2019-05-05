@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6620639911549173932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6620639911687753682}
   - component: {fileID: 6620639911687753683}
   - component: {fileID: 6620639911687753680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,9 +57,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6620639911687753646}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.389, y: -1.222, z: 0.104}
-  m_LocalScale: {x: 0.02, y: 0.3, z: 0.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.295, y: -0.927, z: -0.000000038179}
+  m_LocalScale: {x: 0.04452736, y: 0.077617705, z: 0.0924074}
   m_Children: []
   m_Father: {fileID: 6620639913616302904}
   m_RootOrder: 0
@@ -89,7 +89,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2eb009b1346b3f54693d409206663066, type: 2}
+  - {fileID: 2100000, guid: f16b6ce44d06bdd49a00277c2958b4c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,9 +141,10 @@ GameObject:
   - component: {fileID: 4235708070064244890}
   - component: {fileID: 7818969054752899617}
   - component: {fileID: 7624283924879157807}
-  m_Layer: 0
+  - component: {fileID: 2497259283022861241}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 6620639913219193992}
+  cameraRotationLimit: 85
 --- !u!114 &6620639912415802468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +276,8 @@ MonoBehaviour:
   - {fileID: 6620639912415802468}
   - {fileID: 6620639913219193992}
   - {fileID: 6620639913219193993}
+  - {fileID: 2497259283022861241}
+  remoteLayerName: RemotePlayer
 --- !u!114 &4235708070064244890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +415,26 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2497259283022861241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6620639912415802467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a58263089b6f14fb95577b8756ae7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon:
+    name: Lazer
+    damange: 10
+    range: 100
+  cam: {fileID: 6620639913219193992}
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6620639913219193991
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +446,7 @@ GameObject:
   - component: {fileID: 6620639913219193990}
   - component: {fileID: 6620639913219193992}
   - component: {fileID: 6620639913219193993}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +529,7 @@ GameObject:
   - component: {fileID: 6620639913601228034}
   - component: {fileID: 6620639913601228036}
   - component: {fileID: 6620639913601228037}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6620639913616302904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
