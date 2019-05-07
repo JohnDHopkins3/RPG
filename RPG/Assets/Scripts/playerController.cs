@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-[RequireComponent(typeof(ConfigurableJoint))]
+
 [RequireComponent(typeof(playerMotor))]
 public class playerController : MonoBehaviour
 {
@@ -11,28 +11,11 @@ public class playerController : MonoBehaviour
     [SerializeField]
     private float thrusterForce = 1000f;
 
-    [Header("spring settings:")]
-    [SerializeField]
-    private JointProjectionMode jointMode =
-         JointProjectionMode.PositionAndRotation;
-    [SerializeField]
-    private float jointSpring = 20f;
-    [SerializeField]
-    private float JointMaxForce = 40f;
-
-
-
-
     private playerMotor motor;
-    private ConfigurableJoint joint;
 
     private void Start()
     {
         motor = GetComponent<playerMotor>();
-        joint = GetComponent<ConfigurableJoint>();
-
-        setJointSettings(jointSpring);
-
     }
 
     private void Update()
@@ -75,11 +58,7 @@ public class playerController : MonoBehaviour
         if (Input.GetButton("Jump"))
         {
             _thrusterForce = Vector3.up * thrusterForce;
-            setJointSettings(0f);
-        }
-        else
-        {
-            setJointSettings(jointSpring);
+            
         }
 
         //thrusterForce apply
@@ -88,8 +67,4 @@ public class playerController : MonoBehaviour
 
     }
 
-    private void setJointSettings(float _jointspring)
-    {
-        joint.yDrive = new JointDrive { mode = (UnityEngine.JointDriveMode)jointMode, positionSpring = jointSpring, maximumForce = JointMaxForce };
-    }
 }

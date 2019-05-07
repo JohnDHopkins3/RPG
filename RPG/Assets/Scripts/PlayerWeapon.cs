@@ -5,7 +5,7 @@ public class PlayerWeapon
 {
     public string name = "Lazer";
 
-    public float damange = 10f;
+    public int damange = 10;
     public float range = 100f;
 
 }
