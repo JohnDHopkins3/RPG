@@ -3,10 +3,10 @@ using System.Collections;
 
 public static class MeshGen
 {
-
     public static MeshData GenerateTerrainMesh(float[,] heightMap, float heightMultiplier, AnimationCurve _heightCurve, int levelOfDetail,bool useFlatShading)
     {
         AnimationCurve heightCurve = new AnimationCurve(_heightCurve.keys);
+        
 
         int meshSimplificationIncrement = (levelOfDetail == 0) ? 1 : levelOfDetail * 2;
 
@@ -53,7 +53,7 @@ public static class MeshGen
                 Vector3 vertexPosition = new Vector3(topLeftX + percent.x* meshSizeUnsimplified, height, topLeftZ - percent.y* meshSizeUnsimplified);
 
                 meshData.AddVertex(vertexPosition, percent, vertexIndex);
-
+ 
                 if (x < borderedSize - 1 && y < borderedSize - 1)
                 {
                     int a = vertexIndicesMap[x, y];

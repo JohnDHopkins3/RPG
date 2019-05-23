@@ -9,9 +9,11 @@ public class GunScript : MonoBehaviour
     public GameObject rectangle;
     public GameObject cylinder;
     public GameObject capsuel;
+    public GameObject tree;
+    bool froze = false;
 
     GameObject holder;
-    public Vector3 offset = new Vector3(1, 1, 1);
+    public Vector3 offset;
     public Camera cam;
 
     private void Start()
@@ -49,10 +51,15 @@ public class GunScript : MonoBehaviour
         {
             holder = capsuel;
         }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            holder = tree;
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot(true,false);
         }
+        
     }
     void Shoot(bool create,bool freze)
     {
@@ -64,7 +71,16 @@ public class GunScript : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag.Equals("object"))
                 {
-                   Destroy(hit.collider.gameObject.GetComponent<Rigidbody>());
+                    if (froze == false)
+                    {
+                        hit.collider.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                        froze = true;
+                    }
+                    else
+                    {
+                        hit.collider.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        froze = false;
+                    }
                 }
             }
             if (create==true&&freze==false)

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class EndLessTerrain : MonoBehaviour
 {
-
     const float scale = 5f;
 
     const float viewerMoveThresholdForChunkUpdate = 25f;
@@ -64,7 +63,7 @@ public class EndLessTerrain : MonoBehaviour
             for (int xOffset = -chunksVisibleInViewDst; xOffset <= chunksVisibleInViewDst; xOffset++)
             {
                 Vector2 viewedChunkCoord = new Vector2(currentChunkCoordX + xOffset, currentChunkCoordY + yOffset);
-
+                
                 if (terrainChunkDictionary.ContainsKey(viewedChunkCoord))
                 {
                     terrainChunkDictionary[viewedChunkCoord].UpdateTerrainChunk();
@@ -146,13 +145,14 @@ public class EndLessTerrain : MonoBehaviour
         {
             if (mapDataReceived)
             {
+                
                 float viewerDstFromNearestEdge = Mathf.Sqrt(bounds.SqrDistance(viewerPosition));
                 bool visible = viewerDstFromNearestEdge <= maxViewDst;
 
                 if (visible)
                 {
                     int lodIndex = 0;
-
+                    
                     for (int i = 0; i < detailLevels.Length - 1; i++)
                     {
                         if (viewerDstFromNearestEdge > detailLevels[i].visibleDstThreshold)
@@ -248,5 +248,4 @@ public class EndLessTerrain : MonoBehaviour
         public float visibleDstThreshold;
         public bool useForColider;
     }
-
 }
